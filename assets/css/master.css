@@ -1,136 +1,243 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Spartan:wght@500;700&display=swap");
+
 :root {
-    --primary-color: hsl(180, 29%, 50%);
-    --text-color: hsl(180, 8%, 52%);
-    --background-color: hsl(180, 52%, 96%);
-    --filter-tablets: hsl(180, 31%, 95%);
-    --dark-grayish-cyan: hsl(180, 8%, 52%);
+    --dark-cyan: hsl(180, 29%, 50%);
+    --bg-cyan: hsl(180, 52%, 96%);
+    --filter-cyan: hsl(180, 31%, 95%);
+    --dark-gray-cyan: hsl(180, 8%, 52%);
     --very-dark-cyan: hsl(180, 14%, 20%);
+
     --shadow: 0 5px 30px 10px hsl(180, 29%, 50%, 0.2);
 }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    font-family: "League Spartan", sans-serif !important;
-    font-weight: 500;
-    background-color: var(--background-color) !important;
+    font-family: "Spartan", sans-serif;
+    position: relative;
 }
 
-.head {
-    background-color: var(--primary-color);
-}
-.main-container {
-    width: 70%;
-    margin: 0 auto;
+header {
+    min-height: 150px;
+    background-color: var(--dark-cyan);
+    background-position: center;
+    background-size: cover;
 }
 
-.filter-section {
+.filter {
     width: 100%;
-    background-color: white;
-    box-shadow: var(--shadow);
+    position: relative;
+    background: white;
+    height: auto;
     padding: 16px;
     margin: auto;
     bottom: 50px;
     border-radius: 5px;
     box-shadow: var(--shadow);
     max-width: 1000px;
+    display: none;
+    justify-content: space-between;
     gap: 1em;
 }
-.filter {
-    padding: 0.5rem;
-    height: 30px;
+
+.span {
+    display: inline-block;
+    background: var(--filter-cyan);
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 3px;
+}
+
+.filter-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.filter-option p {
+    padding: 0.5em;
     display: inline-block;
     font-size: 0.8rem;
     font-weight: 700;
-    background-color: var(--filter-tablets);
-    color: var(--primary-color);
-}
-.close-btn {
-    height: 30px;
-    aspect-ratio: 1;
-    background: var(--primary-color);
-    border: none;
-    cursor: pointer;
-}
-.close-btn:hover {
-    background-color: var(--very-dark-cyan);
+    color: var(--dark-cyan);
 }
 
-#clear-btn {
+.filter-option button {
+    height: 30px;
+    aspect-ratio: 1;
+    background: var(--dark-cyan);
+    border: none;
+    cursor: pointer;
+    transition: 0.13s ease;
+}
+
+.filter-option button:hover {
+    background: var(--very-dark-cyan);
+}
+
+.filter-option img {
+    margin: auto;
+}
+
+.clear {
+    color: var(--dark-gray-cyan);
     background: none;
     border: none;
     font-weight: 700;
     font-size: 1rem;
     cursor: pointer;
-    color: var(--dark-grayish-cyan);
 }
-#clear-btn:hover {
-    color: var(--primary-color);
+
+.clear:hover {
+    color: var(--dark-cyan);
     text-decoration: underline;
 }
 
-.jobs-container {
-    box-shadow: var(--shadow);
-    background-color: white;
-    border-radius: 7px;
-    margin: 2em auto 1.5em;
-    padding: 1.5rem;
-    position: relative;
-    max-width: 1000px;
+main {
+    padding: 25px 1.5em 1em;
+    min-height: 100vh;
 }
-span {
+
+.container {
+    box-shadow: var(--shadow);
+    border-radius: 7px;
+    margin: 2em auto 2.5em;
+    padding: 40px 1em 1em;
+    position: relative;
+}
+
+.container.featured {
+    border-left: 5px solid var(--dark-cyan);
+}
+.container.remove {
+    display: none;
+}
+
+.container img {
+    position: absolute;
+    bottom: 100%;
+    left: 15px;
+    transform: translateY(50%);
+    width: 60px;
+}
+
+.top {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    margin: 0.5em 0;
+}
+
+.top h2 {
+    color: var(--dark-cyan);
+    font-size: 1rem;
+}
+
+.stat span {
     margin: 0 5px;
     padding: 0.5em 0.8em;
     text-transform: uppercase;
     color: white;
     font-weight: 700;
     border-radius: 15px;
-    font-size: 0.6rem;
+    font-size: 0.5rem;
     display: inline-block;
     line-height: 2;
 }
+
 .feature {
-    border-left: 5px solid var(--primary-color);
-}
-.featured {
     background: var(--very-dark-cyan);
 }
+
 .new {
-    background: var(--primary-color);
+    background: var(--dark-cyan);
 }
 
-.job-name {
-    font-size: 1rem;
-    color: var(--primary-color);
-    font-weight: 700;
-}
-
-.job-level {
+.container a {
     color: var(--very-dark-cyan);
+    transition: 0.2s ease;
     text-decoration: none;
     font-weight: 700;
     font-size: 1.2rem;
     cursor: pointer;
 }
-.job-level:hover {
-    color: var(--primary-color);
+
+.container a:hover {
+    color: var(--dark-cyan);
 }
-.stats {
-    gap: 1em;
+
+.status {
+    display: flex;
+    color: var(--dark-gray-cyan);
+    margin: 0.6em 0;
+}
+
+.status li {
+    margin-right: 2em;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.status li:first-child {
+    list-style: none;
+}
+
+.container hr {
+    margin: 1em 0;
+    opacity: 0.5;
 }
 
 .tags {
-    gap: 1em;
+    display: flex;
+    flex-wrap: wrap;
 }
-.tag {
+
+.tags button {
     border: none;
-    background: var(--filter-tablets);
+    background: var(--filter-cyan);
     padding: 0.8em;
     border-radius: 5px;
     font-weight: 700;
-    color: var(--primary-color);
+    color: var(--dark-cyan);
+    transition: 0.1s ease;
     margin: 0.5em;
     margin-left: 0;
     cursor: pointer;
 }
-.tag:hover {
-    background-color: var(--primary-color);
-    color: white;
+
+.tags button:hover {
+    color: var(--filter-cyan);
+    background-color: var(--dark-cyan);
+}
+
+@media (min-width: 700px) {
+    .container img {
+        position: static;
+        transform: unset;
+        bottom: unset;
+        width: 70px;
+        height: 70px;
+        margin-right: 0.5em;
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+        max-width: 1000px;
+        padding: 1em;
+    }
+
+    hr {
+        display: none;
+    }
+
+    .head {
+        flex-grow: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 }
